@@ -11,12 +11,12 @@ import { Content } from './data/content';
 
 function App() {
   const [myList, setMyList] = useState<string[]>(() => {
-    const saved = localStorage.getItem('streamvault-mylist');
+    const saved = localStorage.getItem('javinflix-mylist');
     return saved ? JSON.parse(saved) : [];
   });
 
   useEffect(() => {
-    localStorage.setItem('streamvault-mylist', JSON.stringify(myList));
+    localStorage.setItem('javinflix-mylist', JSON.stringify(myList));
   }, [myList]);
 
   const handleAddToList = (content: Content) => {
@@ -110,7 +110,7 @@ function App() {
               <div>
                 <h3 className="text-white/80 font-semibold text-sm mb-3">About</h3>
                 <ul className="space-y-2">
-                  <li><span className="text-white/40 text-xs">StreamVault is a free streaming aggregator for personal use.</span></li>
+                  <li><span className="text-white/40 text-xs">Javinflix is a free streaming aggregator for personal use.</span></li>
                   <li><span className="text-white/40 text-xs">All sources are 100% free and legal.</span></li>
                   <li><span className="text-white/40 text-xs">No subscription or credit card required.</span></li>
                 </ul>
@@ -119,13 +119,13 @@ function App() {
             <div className="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-black text-xs">SV</span>
+                  <span className="text-white font-black text-xs">JF</span>
                 </div>
-                <span className="text-white/60 text-sm font-semibold">StreamVault</span>
+                <span className="text-white/60 text-sm font-semibold">Javinflix</span>
                 <span className="text-green-400/60 text-[10px] font-medium">FREE</span>
               </div>
               <p className="text-white/30 text-xs text-center">
-                © 2024 StreamVault • Free Streaming Hub for Personal Use • All content from licensed free sources
+                © 2024 Javinflix • Free Streaming Hub for Personal Use • All content from licensed free sources
               </p>
             </div>
           </div>

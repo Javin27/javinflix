@@ -43,7 +43,7 @@ export default function SourcesPage() {
             <h1 className="text-white text-3xl font-black">Free Streaming Sources</h1>
           </div>
           <p className="text-white/50 text-sm max-w-2xl">
-            StreamVault aggregates content from {sources.length} free streaming platforms. 
+            Javinflix aggregates content from {sources.length} free streaming platforms. 
             No subscriptions, no credit cards — just free movies and TV shows from legal sources.
           </p>
         </div>
@@ -161,7 +161,7 @@ export default function SourcesPage() {
         <div className="bg-gradient-to-br from-green-500/5 to-emerald-500/5 border border-green-500/10 rounded-2xl p-6 md:p-8">
           <h2 className="text-white text-xl font-bold mb-4 flex items-center gap-2">
             <Shield size={20} className="text-green-400" />
-            How StreamVault Works
+            How Javinflix Works
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="space-y-2">
@@ -197,7 +197,7 @@ export default function SourcesPage() {
         {/* Disclaimer */}
         <div className="mt-8 bg-white/[0.02] border border-white/5 rounded-lg p-4">
           <p className="text-white/40 text-xs leading-relaxed">
-            <strong className="text-white/60">Personal Use Disclaimer:</strong> StreamVault is a personal-use aggregation tool that helps you discover 
+            <strong className="text-white/60">Personal Use Disclaimer:</strong> Javinflix is a personal-use aggregation tool that helps you discover 
             free, legal streaming content. All content is sourced from legitimate free streaming platforms. 
             We do not host, store, or distribute any copyrighted content. Availability may vary by region. 
             Some sources may require a free library card or account registration.

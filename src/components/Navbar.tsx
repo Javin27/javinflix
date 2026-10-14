@@ -29,12 +29,12 @@ export default function Navbar({ onSearch }: NavbarProps) {
           <Link to="/" className="flex items-center gap-2 mr-8">
             <div className="relative">
               <div className="w-10 h-10 bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 rounded-lg flex items-center justify-center shadow-lg shadow-green-500/20">
-                <span className="text-white font-black text-lg">SV</span>
+                <span className="text-white font-black text-lg">JF</span>
               </div>
             </div>
             <div className="hidden sm:block">
               <span className="text-white font-bold text-xl">
-                Stream<span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">Vault</span>
+                Javin<span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">flix</span>
               </span>
               <span className="block text-[10px] text-green-400/80 font-medium -mt-0.5 uppercase tracking-wider">Free Streaming Hub</span>
             </div>
