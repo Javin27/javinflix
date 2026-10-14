@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Search, Filter } from 'lucide-react';
+import { Search, Filter, Gift } from 'lucide-react';
 import ContentCard from '../components/ContentCard';
 import ContentDetail from '../components/ContentDetail';
 import { Content, searchContent, genres, getContentByGenre } from '../data/content';
@@ -56,15 +56,15 @@ export default function SearchPage({ myList, onAddToList, initialQuery }: Search
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search movies, series, actors, genres..."
+                placeholder="Search free movies, series, actors, genres..."
                 className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-3 text-white placeholder-white/40 outline-none focus:border-purple-500/50 focus:bg-white/[0.07] transition-all"
               />
             </div>
             <button
               type="submit"
-              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-blue-700 transition-all"
+              className="px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all"
             >
-              Search
+              Search Free
             </button>
           </form>
         </div>
@@ -82,7 +82,7 @@ export default function SearchPage({ myList, onAddToList, initialQuery }: Search
                 onClick={() => handleGenreChange(genre)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   selectedGenre === genre
-                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/20'
+                    ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-lg shadow-green-500/20'
                     : 'bg-white/5 text-white/60 border border-white/10 hover:bg-white/10 hover:text-white'
                 }`}
               >
@@ -116,8 +116,8 @@ export default function SearchPage({ myList, onAddToList, initialQuery }: Search
           ) : (
             <div className="text-center py-20">
               <div className="text-6xl mb-4">🎬</div>
-              <h3 className="text-white text-xl font-semibold mb-2">No results found</h3>
-              <p className="text-white/50">Try a different search term or browse by genre</p>
+              <h3 className="text-white text-xl font-semibold mb-2">No free results found</h3>
+              <p className="text-white/50">Try a different search term or browse by genre to find free content</p>
             </div>
           )}
         </div>

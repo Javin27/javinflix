@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Film } from 'lucide-react';
+import { Film, Gift } from 'lucide-react';
 import ContentRow from '../components/ContentRow';
 import ContentDetail from '../components/ContentDetail';
-import { Content, getMovies, contentData } from '../data/content';
+import { Content, getMovies } from '../data/content';
 
 interface MoviesPageProps {
   myList: string[];
@@ -23,11 +23,14 @@ export default function MoviesPage({ myList, onAddToList }: MoviesPageProps) {
         {/* Header */}
         <div className="px-4 md:px-8 mb-6">
           <div className="flex items-center gap-3 mb-2">
-            <Film size={28} className="text-red-400" />
-            <h1 className="text-white text-3xl font-black">Movies</h1>
+            <Film size={28} className="text-green-400" />
+            <h1 className="text-white text-3xl font-black">Free Movies</h1>
+            <span className="flex items-center gap-1 px-2 py-0.5 bg-green-500/10 border border-green-500/20 rounded-full text-green-400 text-xs font-medium">
+              <Gift size={10} /> All Free
+            </span>
           </div>
           <p className="text-white/50 text-sm">
-            Explore our collection of {movies.length} movies from multiple streaming sources
+            {movies.length} movies available free from multiple legal sources — no subscription needed
           </p>
         </div>
 
@@ -46,8 +49,8 @@ export default function MoviesPage({ myList, onAddToList }: MoviesPageProps) {
               <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <div className="absolute bottom-0 left-0 p-6 md:p-8">
-                <span className="px-3 py-1 bg-red-600 text-white text-xs font-bold rounded uppercase mb-3 inline-block">
-                  Featured Movie
+                <span className="flex items-center gap-1 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded uppercase mb-3 inline-block">
+                  <Gift size={10} /> Featured Free Movie
                 </span>
                 <h2 className="text-white text-2xl md:text-4xl font-black mb-2">{movies[0].title}</h2>
                 <p className="text-white/60 text-sm max-w-lg line-clamp-2">{movies[0].description}</p>

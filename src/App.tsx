@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './pages/Home';
 import SearchPage from './pages/Search';
 import MoviesPage from './pages/Movies';
 import SeriesPage from './pages/Series';
 import MyListPage from './pages/MyList';
+import SourcesPage from './pages/Sources';
 import { Content } from './data/content';
 
 function App() {
@@ -57,6 +58,10 @@ function App() {
             element={<SeriesPage myList={myList} onAddToList={handleAddToList} />} 
           />
           <Route 
+            path="/sources" 
+            element={<SourcesPage />} 
+          />
+          <Route 
             path="/mylist" 
             element={
               <MyListPage 
@@ -78,44 +83,49 @@ function App() {
                   <li><a href="/" className="text-white/40 text-xs hover:text-white/70 transition-colors">Home</a></li>
                   <li><a href="/movies" className="text-white/40 text-xs hover:text-white/70 transition-colors">Movies</a></li>
                   <li><a href="/series" className="text-white/40 text-xs hover:text-white/70 transition-colors">TV Series</a></li>
+                  <li><a href="/sources" className="text-white/40 text-xs hover:text-white/70 transition-colors">Free Sources</a></li>
                   <li><a href="/mylist" className="text-white/40 text-xs hover:text-white/70 transition-colors">My List</a></li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-white/80 font-semibold text-sm mb-3">Streaming Sources</h3>
+                <h3 className="text-white/80 font-semibold text-sm mb-3">Ad-Supported (Free)</h3>
                 <ul className="space-y-2">
-                  <li><span className="text-white/40 text-xs">🔴 Netflix</span></li>
-                  <li><span className="text-white/40 text-xs">🔵 Amazon Prime</span></li>
-                  <li><span className="text-white/40 text-xs">🏰 Disney+</span></li>
-                  <li><span className="text-white/40 text-xs">🟣 HBO Max</span></li>
+                  <li><span className="text-white/40 text-xs">🟡 Tubi</span></li>
+                  <li><span className="text-white/40 text-xs">🌐 Pluto TV</span></li>
+                  <li><span className="text-white/40 text-xs">🟢 Amazon Freevee</span></li>
+                  <li><span className="text-white/40 text-xs">🔶 Crackle</span></li>
+                  <li><span className="text-white/40 text-xs">🍿 PopcornFlix</span></li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-white/80 font-semibold text-sm mb-3">More Sources</h3>
+                <h3 className="text-white/80 font-semibold text-sm mb-3">More Free Sources</h3>
                 <ul className="space-y-2">
-                  <li><span className="text-white/40 text-xs">🟢 Hulu</span></li>
-                  <li><span className="text-white/40 text-xs">⚪ Apple TV+</span></li>
-                  <li><span className="text-white/40 text-xs">🔷 Paramount+</span></li>
-                  <li><span className="text-white/40 text-xs">🦚 Peacock</span></li>
+                  <li><span className="text-white/40 text-xs">▶️ YouTube Movies</span></li>
+                  <li><span className="text-white/40 text-xs">🏛️ Internet Archive</span></li>
+                  <li><span className="text-white/40 text-xs">📚 Kanopy (Library)</span></li>
+                  <li><span className="text-white/40 text-xs">📖 Hoopla (Library)</span></li>
+                  <li><span className="text-white/40 text-xs">🟠 Plex</span></li>
                 </ul>
               </div>
               <div>
                 <h3 className="text-white/80 font-semibold text-sm mb-3">About</h3>
                 <ul className="space-y-2">
-                  <li><span className="text-white/40 text-xs">StreamVault aggregates content from multiple streaming platforms</span></li>
-                  <li><span className="text-white/40 text-xs">All content is provided by licensed streaming services</span></li>
+                  <li><span className="text-white/40 text-xs">StreamVault is a free streaming aggregator for personal use.</span></li>
+                  <li><span className="text-white/40 text-xs">All sources are 100% free and legal.</span></li>
+                  <li><span className="text-white/40 text-xs">No subscription or credit card required.</span></li>
                 </ul>
               </div>
             </div>
             <div className="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-red-600 via-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
                   <span className="text-white font-black text-xs">SV</span>
                 </div>
                 <span className="text-white/60 text-sm font-semibold">StreamVault</span>
+                <span className="text-green-400/60 text-[10px] font-medium">FREE</span>
               </div>
               <p className="text-white/30 text-xs text-center">
-                © 2024 StreamVault. All rights reserved. Content sourced from licensed streaming providers.
+                © 2024 StreamVault • Free Streaming Hub for Personal Use • All content from licensed free sources
               </p>
             </div>
           </div>

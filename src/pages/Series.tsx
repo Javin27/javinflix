@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Tv } from 'lucide-react';
+import { Tv, Gift } from 'lucide-react';
 import ContentRow from '../components/ContentRow';
 import ContentDetail from '../components/ContentDetail';
-import { Content, getSeries, contentData } from '../data/content';
+import { Content, getSeries } from '../data/content';
 
 interface SeriesPageProps {
   myList: string[];
@@ -23,11 +23,14 @@ export default function SeriesPage({ myList, onAddToList }: SeriesPageProps) {
         {/* Header */}
         <div className="px-4 md:px-8 mb-6">
           <div className="flex items-center gap-3 mb-2">
-            <Tv size={28} className="text-blue-400" />
-            <h1 className="text-white text-3xl font-black">TV Series</h1>
+            <Tv size={28} className="text-green-400" />
+            <h1 className="text-white text-3xl font-black">Free TV Series</h1>
+            <span className="flex items-center gap-1 px-2 py-0.5 bg-green-500/10 border border-green-500/20 rounded-full text-green-400 text-xs font-medium">
+              <Gift size={10} /> All Free
+            </span>
           </div>
           <p className="text-white/50 text-sm">
-            Binge-worthy series from {new Set(series.flatMap(s => s.sources.map(src => src.name))).size} streaming platforms
+            Binge-worthy series from {new Set(series.flatMap(s => s.sources.map(src => src.name))).size} free streaming sources — no subscription needed
           </p>
         </div>
 
@@ -46,8 +49,8 @@ export default function SeriesPage({ myList, onAddToList }: SeriesPageProps) {
               <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <div className="absolute bottom-0 left-0 p-6 md:p-8">
-                <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded uppercase mb-3 inline-block">
-                  Featured Series
+                <span className="flex items-center gap-1 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded uppercase mb-3 inline-block">
+                  <Gift size={10} /> Featured Free Series
                 </span>
                 <h2 className="text-white text-2xl md:text-4xl font-black mb-2">{series[0].title}</h2>
                 <div className="flex items-center gap-3 text-white/60 text-sm mb-2">

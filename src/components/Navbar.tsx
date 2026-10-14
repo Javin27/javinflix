@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, Bell, User, Menu, X, Film, Tv } from 'lucide-react';
+import { Search, Bell, User, Menu, X, Film, Tv, Gift } from 'lucide-react';
 
 interface NavbarProps {
   onSearch: (query: string) => void;
@@ -28,13 +28,16 @@ export default function Navbar({ onSearch }: NavbarProps) {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 mr-8">
             <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-br from-red-600 via-purple-600 to-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/20">
+              <div className="w-10 h-10 bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 rounded-lg flex items-center justify-center shadow-lg shadow-green-500/20">
                 <span className="text-white font-black text-lg">SV</span>
               </div>
             </div>
-            <span className="text-white font-bold text-xl hidden sm:block">
-              Stream<span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-500">Vault</span>
-            </span>
+            <div className="hidden sm:block">
+              <span className="text-white font-bold text-xl">
+                Stream<span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">Vault</span>
+              </span>
+              <span className="block text-[10px] text-green-400/80 font-medium -mt-0.5 uppercase tracking-wider">Free Streaming Hub</span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
@@ -45,6 +48,9 @@ export default function Navbar({ onSearch }: NavbarProps) {
             </Link>
             <Link to="/series" className="text-white/70 hover:text-white text-sm font-medium transition-colors flex items-center gap-1">
               <Tv size={14} /> Series
+            </Link>
+            <Link to="/sources" className="text-white/70 hover:text-white text-sm font-medium transition-colors flex items-center gap-1">
+              <Gift size={14} /> Free Sources
             </Link>
             <Link to="/mylist" className="text-white/70 hover:text-white text-sm font-medium transition-colors">My List</Link>
           </div>
@@ -59,7 +65,7 @@ export default function Navbar({ onSearch }: NavbarProps) {
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Titles, genres, people..."
+                    placeholder="Search free movies & shows..."
                     className="bg-transparent text-white text-sm px-4 py-2 w-full outline-none placeholder-white/50"
                     autoFocus
                   />
@@ -99,6 +105,7 @@ export default function Navbar({ onSearch }: NavbarProps) {
               <Link to="/" className="text-white/90 hover:text-white text-sm font-medium py-2" onClick={() => setMobileMenuOpen(false)}>Home</Link>
               <Link to="/movies" className="text-white/70 hover:text-white text-sm font-medium py-2" onClick={() => setMobileMenuOpen(false)}>Movies</Link>
               <Link to="/series" className="text-white/70 hover:text-white text-sm font-medium py-2" onClick={() => setMobileMenuOpen(false)}>Series</Link>
+              <Link to="/sources" className="text-white/70 hover:text-white text-sm font-medium py-2" onClick={() => setMobileMenuOpen(false)}>Free Sources</Link>
               <Link to="/mylist" className="text-white/70 hover:text-white text-sm font-medium py-2" onClick={() => setMobileMenuOpen(false)}>My List</Link>
             </div>
           </div>

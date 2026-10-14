@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Bookmark, Trash2, Play } from 'lucide-react';
+import { Bookmark, Trash2, Gift } from 'lucide-react';
 import ContentCard from '../components/ContentCard';
 import ContentDetail from '../components/ContentDetail';
 import { Content, contentData } from '../data/content';
@@ -20,11 +20,14 @@ export default function MyListPage({ myList, onAddToList, onRemoveFromList }: My
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
-            <Bookmark size={28} className="text-purple-400" />
-            <h1 className="text-white text-3xl font-black">My List</h1>
+            <Bookmark size={28} className="text-green-400" />
+            <h1 className="text-white text-3xl font-black">My Free List</h1>
+            <span className="flex items-center gap-1 px-2 py-0.5 bg-green-500/10 border border-green-500/20 rounded-full text-green-400 text-xs font-medium">
+              <Gift size={10} /> All Free
+            </span>
           </div>
           <p className="text-white/50 text-sm">
-            {listItems.length} {listItems.length === 1 ? 'title' : 'titles'} in your collection
+            {listItems.length} {listItems.length === 1 ? 'title' : 'titles'} saved — all available from free streaming sources
           </p>
         </div>
 
@@ -49,9 +52,9 @@ export default function MyListPage({ myList, onAddToList, onRemoveFromList }: My
         ) : (
           <div className="text-center py-20">
             <div className="text-6xl mb-4">📋</div>
-            <h3 className="text-white text-xl font-semibold mb-2">Your list is empty</h3>
+            <h3 className="text-white text-xl font-semibold mb-2">Your free list is empty</h3>
             <p className="text-white/50 max-w-md mx-auto">
-              Browse movies and series and click the + button to add them to your personal collection.
+              Browse free movies and series and click the + button to save them to your personal collection. All content is 100% free!
             </p>
           </div>
         )}
