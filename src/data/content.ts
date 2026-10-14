@@ -1,0 +1,388 @@
+export interface Source {
+  id: string;
+  name: string;
+  logo: string;
+  quality: string;
+  price: string;
+  available: boolean;
+  region: string;
+}
+
+export interface Content {
+  id: string;
+  title: string;
+  type: 'movie' | 'series';
+  genre: string[];
+  year: number;
+  rating: number;
+  duration: string;
+  description: string;
+  poster: string;
+  backdrop: string;
+  maturityRating: string;
+  cast: string[];
+  director: string;
+  sources: Source[];
+  featured?: boolean;
+  trending?: boolean;
+  seasons?: number;
+  episodes?: number;
+}
+
+export const sources: Source[] = [
+  { id: 'netflix', name: 'Netflix', logo: '🔴', quality: '4K Ultra HD', price: '$22.99/mo', available: true, region: 'Global' },
+  { id: 'prime', name: 'Amazon Prime', logo: '🔵', quality: '4K Ultra HD', price: '$14.99/mo', available: true, region: 'Global' },
+  { id: 'disney', name: 'Disney+', logo: '🏰', quality: '4K HDR', price: '$13.99/mo', available: true, region: 'Global' },
+  { id: 'hbo', name: 'HBO Max', logo: '🟣', quality: '4K Ultra HD', price: '$15.99/mo', available: true, region: 'US' },
+  { id: 'hulu', name: 'Hulu', logo: '🟢', quality: '1080p HD', price: '$7.99/mo', available: true, region: 'US' },
+  { id: 'apple', name: 'Apple TV+', logo: '⚪', quality: '4K Dolby Vision', price: '$9.99/mo', available: true, region: 'Global' },
+  { id: 'paramount', name: 'Paramount+', logo: '🔷', quality: '4K HDR', price: '$11.99/mo', available: true, region: 'US' },
+  { id: 'peacock', name: 'Peacock', logo: '🦚', quality: '4K HDR', price: '$9.99/mo', available: true, region: 'US' },
+  { id: 'crunchyroll', name: 'Crunchyroll', logo: '🟠', quality: '1080p', price: '$7.99/mo', available: true, region: 'Global' },
+  { id: 'tubi', name: 'Tubi', logo: '🟡', quality: '720p', price: 'Free (Ads)', available: true, region: 'US' },
+];
+
+export const contentData: Content[] = [
+  {
+    id: '1',
+    title: 'Stranger Things',
+    type: 'series',
+    genre: ['Sci-Fi', 'Horror', 'Drama'],
+    year: 2016,
+    rating: 8.7,
+    duration: '4 Seasons',
+    description: 'When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl. A love letter to the 80s classics that captivated a generation.',
+    poster: 'https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920&h=1080&fit=crop',
+    maturityRating: 'TV-14',
+    cast: ['Millie Bobby Brown', 'Finn Wolfhard', 'Winona Ryder', 'David Harbour'],
+    director: 'The Duffer Brothers',
+    sources: [sources[0], sources[3], sources[1]],
+    featured: true,
+    trending: true,
+    seasons: 4,
+    episodes: 34,
+  },
+  {
+    id: '2',
+    title: 'The Dark Knight',
+    type: 'movie',
+    genre: ['Action', 'Crime', 'Drama'],
+    year: 2008,
+    rating: 9.0,
+    duration: '2h 32min',
+    description: 'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.',
+    poster: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1534809027769-b00d750a6bac?w=1920&h=1080&fit=crop',
+    maturityRating: 'PG-13',
+    cast: ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart', 'Michael Caine'],
+    director: 'Christopher Nolan',
+    sources: [sources[0], sources[1], sources[3], sources[9]],
+    trending: true,
+  },
+  {
+    id: '3',
+    title: 'Breaking Bad',
+    type: 'series',
+    genre: ['Crime', 'Drama', 'Thriller'],
+    year: 2008,
+    rating: 9.5,
+    duration: '5 Seasons',
+    description: 'A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family\'s future.',
+    poster: 'https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1920&h=1080&fit=crop',
+    maturityRating: 'TV-MA',
+    cast: ['Bryan Cranston', 'Aaron Paul', 'Anna Gunn', 'Dean Norris'],
+    director: 'Vince Gilligan',
+    sources: [sources[0], sources[1], sources[4]],
+    trending: true,
+    seasons: 5,
+    episodes: 62,
+  },
+  {
+    id: '4',
+    title: 'Inception',
+    type: 'movie',
+    genre: ['Action', 'Sci-Fi', 'Thriller'],
+    year: 2010,
+    rating: 8.8,
+    duration: '2h 28min',
+    description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
+    poster: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1920&h=1080&fit=crop',
+    maturityRating: 'PG-13',
+    cast: ['Leonardo DiCaprio', 'Joseph Gordon-Levitt', 'Elliot Page', 'Tom Hardy'],
+    director: 'Christopher Nolan',
+    sources: [sources[0], sources[1], sources[5], sources[9]],
+  },
+  {
+    id: '5',
+    title: 'The Boys',
+    type: 'series',
+    genre: ['Action', 'Comedy', 'Crime'],
+    year: 2019,
+    rating: 8.7,
+    duration: '4 Seasons',
+    description: 'A group of vigilantes set out to take down corrupt superheroes who abuse their superpowers. A darkly satirical take on superhero culture.',
+    poster: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1535016120720-40c646be5580?w=1920&h=1080&fit=crop',
+    maturityRating: 'TV-MA',
+    cast: ['Karl Urban', 'Jack Quaid', 'Antony Starr', 'Erin Moriarty'],
+    director: 'Eric Kripke',
+    sources: [sources[1], sources[3]],
+    trending: true,
+    seasons: 4,
+    episodes: 32,
+  },
+  {
+    id: '6',
+    title: 'Interstellar',
+    type: 'movie',
+    genre: ['Adventure', 'Drama', 'Sci-Fi'],
+    year: 2014,
+    rating: 8.6,
+    duration: '2h 49min',
+    description: 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity\'s survival as Earth becomes uninhabitable.',
+    poster: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1920&h=1080&fit=crop',
+    maturityRating: 'PG-13',
+    cast: ['Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain', 'Michael Caine'],
+    director: 'Christopher Nolan',
+    sources: [sources[0], sources[1], sources[5], sources[6]],
+  },
+  {
+    id: '7',
+    title: 'The Mandalorian',
+    type: 'series',
+    genre: ['Action', 'Adventure', 'Sci-Fi'],
+    year: 2019,
+    rating: 8.7,
+    duration: '3 Seasons',
+    description: 'The travels of a lone bounty hunter in the outer reaches of the galaxy, far from the authority of the New Republic.',
+    poster: 'https://images.unsplash.com/photo-1598618253202-2f3b10a1c30e?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=1920&h=1080&fit=crop',
+    maturityRating: 'TV-PG',
+    cast: ['Pedro Pascal', 'Giancarlo Esposito', 'Carl Weathers', 'Katee Sackhoff'],
+    director: 'Jon Favreau',
+    sources: [sources[2]],
+    trending: true,
+    seasons: 3,
+    episodes: 24,
+  },
+  {
+    id: '8',
+    title: 'The Witcher',
+    type: 'series',
+    genre: ['Action', 'Adventure', 'Fantasy'],
+    year: 2019,
+    rating: 8.2,
+    duration: '3 Seasons',
+    description: 'Geralt of Rivia, a solitary monster hunter, struggles to find his place in a world where people often prove more wicked than beasts.',
+    poster: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1920&h=1080&fit=crop',
+    maturityRating: 'TV-MA',
+    cast: ['Henry Cavill', 'Anya Chalotra', 'Freya Allan', 'Joey Batey'],
+    director: 'Lauren Schmidt Hissrich',
+    sources: [sources[0], sources[1], sources[6]],
+    seasons: 3,
+    episodes: 24,
+  },
+  {
+    id: '9',
+    title: 'Dune: Part Two',
+    type: 'movie',
+    genre: ['Action', 'Adventure', 'Drama'],
+    year: 2024,
+    rating: 8.5,
+    duration: '2h 46min',
+    description: 'Paul Atreides unites with the Fremen while on a warpath of revenge against the conspirators who destroyed his family.',
+    poster: 'https://images.unsplash.com/photo-1547236713-d44f2b76b35c?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=1920&h=1080&fit=crop',
+    maturityRating: 'PG-13',
+    cast: ['Timothée Chalamet', 'Zendaya', 'Rebecca Ferguson', 'Javier Bardem'],
+    director: 'Denis Villeneuve',
+    sources: [sources[0], sources[1], sources[3], sources[5]],
+    trending: true,
+  },
+  {
+    id: '10',
+    title: 'Attack on Titan',
+    type: 'series',
+    genre: ['Animation', 'Action', 'Drama'],
+    year: 2013,
+    rating: 9.1,
+    duration: '4 Seasons',
+    description: 'After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.',
+    poster: 'https://images.unsplash.com/photo-1607604276583-3b5e78e6a8e8?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=1920&h=1080&fit=crop',
+    maturityRating: 'TV-MA',
+    cast: ['Yuki Kaji', 'Yui Ishikawa', 'Marina Inoue', 'Hiroshi Kamiya'],
+    director: 'Tetsurō Araki',
+    sources: [sources[0], sources[1], sources[8]],
+    trending: true,
+    seasons: 4,
+    episodes: 94,
+  },
+  {
+    id: '11',
+    title: 'Oppenheimer',
+    type: 'movie',
+    genre: ['Biography', 'Drama', 'History'],
+    year: 2023,
+    rating: 8.4,
+    duration: '3h 0min',
+    description: 'The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during World War II.',
+    poster: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop',
+    maturityRating: 'R',
+    cast: ['Cillian Murphy', 'Emily Blunt', 'Matt Damon', 'Robert Downey Jr.'],
+    director: 'Christopher Nolan',
+    sources: [sources[0], sources[1], sources[5], sources[7]],
+    trending: true,
+  },
+  {
+    id: '12',
+    title: 'Wednesday',
+    type: 'series',
+    genre: ['Comedy', 'Crime', 'Fantasy'],
+    year: 2022,
+    rating: 8.1,
+    duration: '1 Season',
+    description: 'Follows Wednesday Addams\' years as a student, when she attempts to master her emerging psychic ability and solve the mystery that embroiled her parents.',
+    poster: 'https://images.unsplash.com/photo-1533228876829-65c94e7b5025?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1509281373149-e957c6296406?w=1920&h=1080&fit=crop',
+    maturityRating: 'TV-14',
+    cast: ['Jenna Ortega', 'Gwendoline Christie', 'Riki Lindhome', 'Jamie McShane'],
+    director: 'Tim Burton',
+    sources: [sources[0], sources[1]],
+    seasons: 1,
+    episodes: 8,
+  },
+  {
+    id: '13',
+    title: 'The Lord of the Rings: The Rings of Power',
+    type: 'series',
+    genre: ['Action', 'Adventure', 'Drama'],
+    year: 2022,
+    rating: 6.9,
+    duration: '2 Seasons',
+    description: 'Epic drama set thousands of years before the events of J.R.R. Tolkien\'s The Hobbit and The Lord of the Rings.',
+    poster: 'https://images.unsplash.com/photo-1500964757637-9e000c8c915e?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&h=1080&fit=crop',
+    maturityRating: 'TV-14',
+    cast: ['Morfydd Clark', 'Markella Kavenagh', 'Daniel Weyman', 'Robert Aramayo'],
+    director: 'J.A. Bayona',
+    sources: [sources[1]],
+    seasons: 2,
+    episodes: 16,
+  },
+  {
+    id: '14',
+    title: 'The Matrix',
+    type: 'movie',
+    genre: ['Action', 'Sci-Fi'],
+    year: 1999,
+    rating: 8.7,
+    duration: '2h 16min',
+    description: 'When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.',
+    poster: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1515879218367-8466d910auj7?w=1920&h=1080&fit=crop',
+    maturityRating: 'R',
+    cast: ['Keanu Reeves', 'Laurence Fishburne', 'Carrie-Anne Moss', 'Hugo Weaving'],
+    director: 'The Wachowskis',
+    sources: [sources[0], sources[1], sources[3], sources[9]],
+  },
+  {
+    id: '15',
+    title: 'House of the Dragon',
+    type: 'series',
+    genre: ['Action', 'Adventure', 'Drama'],
+    year: 2022,
+    rating: 8.4,
+    duration: '2 Seasons',
+    description: 'An internal succession war within House Targaryen at the height of its power, 172 years before the birth of Daenerys Targaryen.',
+    poster: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1553095066-5e0d2065e7b3?w=1920&h=1080&fit=crop',
+    maturityRating: 'TV-MA',
+    cast: ['Paddy Considine', 'Emma D\'Arcy', 'Matt Smith', 'Olivia Cooke'],
+    director: 'Miguel Sapochnik',
+    sources: [sources[0], sources[3]],
+    trending: true,
+    seasons: 2,
+    episodes: 18,
+  },
+  {
+    id: '16',
+    title: 'Everything Everywhere All at Once',
+    type: 'movie',
+    genre: ['Action', 'Adventure', 'Comedy'],
+    year: 2022,
+    rating: 7.8,
+    duration: '2h 19min',
+    description: 'An aging Chinese immigrant is swept up in an insane adventure, where she alone can save the world by exploring other universes connecting with the lives she could have led.',
+    poster: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1920&h=1080&fit=crop',
+    maturityRating: 'R',
+    cast: ['Michelle Yeoh', 'Stephanie Hsu', 'Ke Huy Quan', 'Jamie Lee Curtis'],
+    director: 'Daniel Kwan, Daniel Scheinert',
+    sources: [sources[0], sources[1], sources[5], sources[7]],
+  },
+  {
+    id: '17',
+    title: 'Severance',
+    type: 'series',
+    genre: ['Drama', 'Mystery', 'Sci-Fi'],
+    year: 2022,
+    rating: 8.7,
+    duration: '1 Season',
+    description: 'Mark leads a team of office workers whose memories have been surgically divided between their work and personal lives.',
+    poster: 'https://images.unsplash.com/photo-1497215842964-222b430dc094?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop',
+    maturityRating: 'TV-MA',
+    cast: ['Adam Scott', 'Zach Cherry', 'Britt Lower', 'Patricia Arquette'],
+    director: 'Ben Stiller',
+    sources: [sources[5], sources[1]],
+    trending: true,
+    seasons: 1,
+    episodes: 9,
+  },
+  {
+    id: '18',
+    title: 'Spider-Man: Across the Spider-Verse',
+    type: 'movie',
+    genre: ['Animation', 'Action', 'Adventure'],
+    year: 2023,
+    rating: 8.6,
+    duration: '2h 20min',
+    description: 'Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence.',
+    poster: 'https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=300&h=450&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=1920&h=1080&fit=crop',
+    maturityRating: 'PG',
+    cast: ['Shameik Moore', 'Hailee Steinfeld', 'Oscar Isaac', 'Jake Johnson'],
+    director: 'Joaquim Dos Santos',
+    sources: [sources[0], sources[1], sources[6], sources[7]],
+  },
+];
+
+export const genres = [
+  'All', 'Action', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 
+  'Drama', 'Fantasy', 'History', 'Horror', 'Mystery', 'Sci-Fi', 'Thriller'
+];
+
+export const getFeaturedContent = () => contentData.filter(c => c.featured);
+export const getTrendingContent = () => contentData.filter(c => c.trending);
+export const getMovies = () => contentData.filter(c => c.type === 'movie');
+export const getSeries = () => contentData.filter(c => c.type === 'series');
+export const getContentByGenre = (genre: string) => {
+  if (genre === 'All') return contentData;
+  return contentData.filter(c => c.genre.includes(genre));
+};
+export const searchContent = (query: string) => {
+  const lower = query.toLowerCase();
+  return contentData.filter(c => 
+    c.title.toLowerCase().includes(lower) || 
+    c.genre.some(g => g.toLowerCase().includes(lower)) ||
+    c.cast.some(a => a.toLowerCase().includes(lower)) ||
+    c.director.toLowerCase().includes(lower)
+  );
+};
